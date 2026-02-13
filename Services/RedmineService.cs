@@ -281,6 +281,56 @@ namespace redmineSupTool.Services
             
             return output.ToString();
         }
+
+        public async Task<IssueInfo?> GetIssueAsync(int issueId)
+        {
+            try
+            {
+                string url = $"{_settings.BaseUrl.TrimEnd('/')}/issues/{issueId}.json";
+                var response = await _httpClient.GetAsync(url);
+                if (!response.IsSuccessStatusCode) return null;
+
+                var jsonString = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<IssueResponse>(jsonString,
+                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                return result?.Issue;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<int?> CreateIssueAsync(IssueData issue)
+        {
+            try
+            {
+                string url = $"{_settings.BaseUrl.TrimEnd('/')}/issues.json";
+                var requestData = new IssueRequest { Issue = issue };
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+                };
+
+                var jsonContent = JsonSerializer.Serialize(requestData, jsonOptions);
+                var content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync(url, content);
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    var result = JsonSerializer.Deserialize<IssueResponse>(responseString,
+                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                    return result?.Issue?.Id;
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 
     // Time Entry Models for GET API
@@ -407,5 +457,67 @@ namespace redmineSupTool.Services
 
         [JsonPropertyName("identifier")]
         public string Identifier { get; set; } = string.Empty;
+    }
+
+    // Issue Models
+    public class IssueResponse
+    {
+        [JsonPropertyName("issue")]
+        public IssueInfo? Issue { get; set; }
+    }
+
+    public class IssueInfo
+    {
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        [JsonPropertyName("project")]
+        public ProjectReference? Project { get; set; }
+
+        [JsonPropertyName("tracker")]
+        public TrackerReference? Tracker { get; set; }
+
+        [JsonPropertyName("subject")]
+        public string Subject { get; set; } = string.Empty;
+    }
+
+    public class ProjectReference
+    {
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = string.Empty;
+    }
+
+    public class TrackerReference
+    {
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = string.Empty;
+    }
+
+    public class IssueRequest
+    {
+        [JsonPropertyName("issue")]
+        public IssueData Issue { get; set; } = new();
+    }
+
+    public class IssueData
+    {
+        [JsonPropertyName("project_id")]
+        public int? ProjectId { get; set; }
+
+        [JsonPropertyName("parent_issue_id")]
+        public int? ParentIssueId { get; set; }
+
+        [JsonPropertyName("subject")]
+        public string Subject { get; set; } = string.Empty;
+
+        [JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        [JsonPropertyName("tracker_id")]
+        public int? TrackerId { get; set; }
     }
 }

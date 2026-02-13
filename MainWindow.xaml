@@ -9,6 +9,9 @@
             <MenuItem Header="{DynamicResource MenuSettings}">
                 <MenuItem Header="{DynamicResource MenuConnectionSettings}" Click="SettingsMenuItem_Click"/>
             </MenuItem>
+            <MenuItem Header="{DynamicResource MenuTools}">
+                <MenuItem Header="{DynamicResource MenuBulkIssue}" Click="BulkIssueMenuItem_Click"/>
+            </MenuItem>
             <MenuItem Header="{DynamicResource MenuView}">
                 <MenuItem x:Name="ToggleLogMenuItem" Header="{DynamicResource MenuShowLog}" 
                           IsCheckable="True" IsChecked="False"

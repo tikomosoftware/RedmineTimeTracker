@@ -7,6 +7,8 @@
     <system:String x:Key="AppTitle">Redmine Time Tracker</system:String>
     <system:String x:Key="MenuSettings">設定</system:String>
     <system:String x:Key="MenuConnectionSettings">接続設定...</system:String>
+    <system:String x:Key="MenuTools">ツール</system:String>
+    <system:String x:Key="MenuBulkIssue">子チケットの一括作成...</system:String>
     <system:String x:Key="MenuView">表示</system:String>
     <system:String x:Key="MenuShowLog">通信ログを表示</system:String>
     <system:String x:Key="MenuHelp">ヘルプ</system:String>
@@ -139,5 +141,18 @@
     <system:String x:Key="DayFri">金</system:String>
     <system:String x:Key="DaySat">土</system:String>
     <system:String x:Key="DaySun">日</system:String>
+
+    <!-- BulkIssueDialog -->
+    <system:String x:Key="BulkIssueTitle">子チケットの一括作成</system:String>
+    <system:String x:Key="LabelParentIssueId">親チケットID:</system:String>
+    <system:String x:Key="LabelDescription">説明（共通のキーワードなど）:</system:String>
+    <system:String x:Key="LabelIssueTitles">チケットタイトル:</system:String>
+    <system:String x:Key="LabelIssueTitlesHelp">※スペースやタブでインデントすると階層構造（親子）になります</system:String>
+    <system:String x:Key="HintHierarchical">例:\n調査\n  基本設計\n    DB設計\n  実装</system:String>
+    <system:String x:Key="BtnCreateIssues">一括作成</system:String>
+    <system:String x:Key="MsgParentIssueNotFound">親チケットが見つかりません。IDを確認してください。</system:String>
+    <system:String x:Key="MsgCreatingIssues">{0}件のチケットを作成中...</system:String>
+    <system:String x:Key="MsgCreateSuccess">チケットの作成が完了しました。</system:String>
+    <system:String x:Key="MsgCreateError">チケットの作成中にエラーが発生しました。</system:String>
 
 </ResourceDictionary>

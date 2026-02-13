@@ -7,6 +7,17 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Strings.en-US.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Global Font Settings -->
+            <Style TargetType="{x:Type Window}">
+                <Setter Property="FontFamily" Value="Meiryo, Segoe UI"/>
+            </Style>
+            <Style TargetType="{x:Type Control}">
+                <Setter Property="FontFamily" Value="Meiryo, Segoe UI"/>
+            </Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="Meiryo, Segoe UI"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

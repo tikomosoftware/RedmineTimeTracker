@@ -7,6 +7,8 @@
     <system:String x:Key="AppTitle">Redmine Time Tracker</system:String>
     <system:String x:Key="MenuSettings">Settings</system:String>
     <system:String x:Key="MenuConnectionSettings">Connection Settings...</system:String>
+    <system:String x:Key="MenuTools">Tools</system:String>
+    <system:String x:Key="MenuBulkIssue">Bulk Create Child Issues...</system:String>
     <system:String x:Key="MenuView">View</system:String>
     <system:String x:Key="MenuShowLog">Show Communication Log</system:String>
     <system:String x:Key="MenuHelp">Help</system:String>
@@ -139,5 +141,18 @@ Errors: {3}</system:String>
     <system:String x:Key="DayFri">Fri</system:String>
     <system:String x:Key="DaySat">Sat</system:String>
     <system:String x:Key="DaySun">Sun</system:String>
+
+    <!-- BulkIssueDialog -->
+    <system:String x:Key="BulkIssueTitle">Bulk Create Child Issues</system:String>
+    <system:String x:Key="LabelParentIssueId">Parent Issue ID:</system:String>
+    <system:String x:Key="LabelDescription">Description (Common keywords, etc.):</system:String>
+    <system:String x:Key="LabelIssueTitles">Issue Titles:</system:String>
+    <system:String x:Key="LabelIssueTitlesHelp">* Use indentation (spaces/tab) to create hierarchical subtasks</system:String>
+    <system:String x:Key="HintHierarchical">Ex:\nPlanning\n  Design\n    Database\n  Implementation</system:String>
+    <system:String x:Key="BtnCreateIssues">Bulk Create</system:String>
+    <system:String x:Key="MsgParentIssueNotFound">Parent issue not found. Please check the ID.</system:String>
+    <system:String x:Key="MsgCreatingIssues">Creating {0} issues...</system:String>
+    <system:String x:Key="MsgCreateSuccess">Issue creation completed.</system:String>
+    <system:String x:Key="MsgCreateError">An error occurred while creating issues.</system:String>
 
 </ResourceDictionary>

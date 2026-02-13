@@ -77,6 +77,20 @@ For detailed instructions, please refer to [USER_GUIDE.en.md](USER_GUIDE.en.md).
 - **UI Framework**: WPF
 - **Design**: Modern UI with Fluent Design principles
 
+## 📜 Change Log
+
+### v1.1.0 (2026/02/14)
+- **✨ Enhanced Bulk Create Child Issues**
+  - Added support for automatic hierarchical structure (parent-child) using indentation.
+  - Added a common description/keyword field for all created issues.
+  - Optimized sequential processing to ensure correct ID ordering in Redmine.
+- **🐞 Bug Fixes & Stability**
+  - Fixed null reference warnings in resource retrieval.
+  - Minor UI adjustments for the bulk creation dialog.
+
+### v1.0.0 (2026/02/13)
+- Initial release.
+
 ---
 
 © 2026 tikomo software

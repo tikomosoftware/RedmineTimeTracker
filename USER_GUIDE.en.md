@@ -4,10 +4,20 @@ English | **[日本語](USER_GUIDE.md)**
 
 ---
 
-**Version**: 1.0  
-**Last Updated**: February 13, 2026
+**Version**: 1.1  
+**Last Updated**: February 14, 2026
 
 ---
+
+### 🎉 What's New in Version 1.1
+
+- **Enhanced Bulk Create Child Issues**:
+  *   **Automatic Hierarchical Creation**: Create nested subtasks instantly by indenting titles with spaces or tabs.
+  *   **Common Description Field**: Set a shared keyword or description for all newly created child issues.
+  *   **Guaranteed Creation Order**: Issues are registered in Redmine in the exact same order as they appear in the text.
+- **UI/UX Improvements**:
+  *   Redesigned the bulk issue dialog for better usability.
+  *   Improved error handling and code stability.
 
 ## 📖 Table of Contents
 
@@ -360,6 +370,31 @@ Set weekends as work days to include them in bulk registration.
 **How to remove**:
 1. Right-click the work day
 2. Select "Remove Work Day Setting"
+
+### Bulk Create Child Issues
+
+A useful feature when you need to create a large number of child issues (subtasks) at once.
+
+**Steps**:
+
+1. **Select "Tools" → "Bulk Create Child Issues..." from the menu**
+2. **Enter Parent Issue ID**
+   - Enter the ID of an existing issue that will be the parent.
+   - Child issues will inherit the same project and tracker (task type) as the parent.
+3. **Enter Issue Titles**
+   - Enter one title per line.
+   - An issue will be created for each line, in the order entered.
+4. **Enter Description / Common Keywords (Optional)**
+   - Enter text that you want to include in the "Description" field of all created issues (e.g., specific tags, common notes).
+5. **Click "Bulk Create"**
+   - Creation will start sequentially, with progress displayed.
+
+**Features**:
+- **Precise Order**: Issues are created in the order they appear in the text, ensuring they follow the same order in Redmine (sorted by ID).
+- **Hierarchical Structure (Parent-Child)**: You can create nested subtasks by indenting lines with spaces or tabs.
+  - Lines with no indentation become direct children of the specified "Parent Issue".
+  - Indented lines become children of the closest preceding line with less indentation.
+- **Efficiency**: Automates the tedious manual process of creating 10, 20, or more subtasks.
 
 ---
 

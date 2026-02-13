@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using redmineSupTool.Models;
 using redmineSupTool.Services;
+using redmineSupTool.Views;
 
 namespace redmineSupTool
 {
@@ -868,6 +869,20 @@ namespace redmineSupTool
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+        }
+
+        private void BulkIssueMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_settings.IsConfigured)
+            {
+                MessageBox.Show(this, GetString("MsgConnectionRequired"),
+                    GetString("TitleInfo"), MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            var dialog = new BulkIssueDialog(_redmineService);
+            dialog.Owner = this;
+            dialog.ShowDialog();
         }
 
         private void AboutMenuItem_Click(object sender, RoutedEventArgs e)

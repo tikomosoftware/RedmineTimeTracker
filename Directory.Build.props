@@ -2,7 +2,7 @@
   <PropertyGroup>
     <!-- アプリケーション情報 -->
     <AppName>RedmineTimeTracker</AppName>
-    <AppVersion>1.0.0</AppVersion>
+    <AppVersion>1.1.0</AppVersion>
     <AppDescription>Redmine Time Tracker</AppDescription>
     <AppCopyright>© 2026 tikomo software</AppCopyright>
     <AppAuthor>tikomo software</AppAuthor>
