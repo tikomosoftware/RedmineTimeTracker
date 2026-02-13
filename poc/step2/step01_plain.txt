@@ -1,0 +1,28 @@
+# 目的
+自作の Windows デスクトップアプリ（WinUI 3）から、ローカルで稼働している Redmine API への接続テストを行いたい。
+
+# 技術スタック
+- 言語: C#
+- フレームワーク: WPF
+- 通信ライブラリ: HttpClient
+
+# 実装要件
+1. 設定情報として以下を保持するクラスを作成してください。
+   - BaseURL http://localhost:8080
+   - APIKey XXXXXXXXXX
+2. Redmine API (GET /projects.json) を叩き、プロジェクト一覧を JSON で取得して、デバッグコンソールに表示する非同期メソッドを作成してください。
+3. Redmine API のカスタムヘッダー `X-Redmine-API-Key` を使用して認証を行うようにしてください。
+4. JSON のデシリアライズには `System.Text.Json` を使用してください。
+
+# アウトプット希望
+- 通信を担当する簡単な Service クラスのコード
+- ボタンクリックイベントなどでそのメソッドを呼び出す実装例
+
+# コンソールアプリの例
+// HttpClient を使った接続例
+using var client = new HttpClient();
+client.DefaultRequestHeaders.Add("X-Redmine-API-Key", "あなたのアクセスキー");
+
+var response = await client.GetAsync("http://localhost:8080/projects.json");
+var json = await response.Content.ReadAsStringAsync();
+Console.WriteLine(json); // プロジェクト一覧が返ってくれば成功！

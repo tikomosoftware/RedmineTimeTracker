@@ -1,0 +1,63 @@
+<Window x:Class="redmineSupTool.TemplateDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource TemplateTitleAdd}" Height="450" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="{DynamicResource LabelName}" VerticalAlignment="Center" Margin="0,0,0,8"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="NameTextBox" Margin="0,0,0,8"/>
+        
+        <TextBlock Grid.Row="1" Text="{DynamicResource LabelTicketId}" VerticalAlignment="Center" Margin="0,0,0,8"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="IssueIdTextBox" Margin="0,0,0,8"/>
+        
+        <TextBlock Grid.Row="2" Text="{DynamicResource LabelHours}" VerticalAlignment="Center" Margin="0,0,0,8"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" x:Name="HoursComboBox" Margin="0,0,0,8"/>
+        
+        <TextBlock Grid.Row="3" Text="{DynamicResource LabelActivity}" VerticalAlignment="Center" Margin="0,0,0,8"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="ActivityComboBox" 
+                  DisplayMemberPath="Name" Margin="0,0,0,8"/>
+        
+        <TextBlock Grid.Row="4" Text="{DynamicResource LabelFrequency}" VerticalAlignment="Center" Margin="0,0,0,8"/>
+        <ComboBox Grid.Row="4" Grid.Column="1" x:Name="FrequencyComboBox" 
+                  SelectionChanged="FrequencyComboBox_SelectionChanged" Margin="0,0,0,8"/>
+        
+        <TextBlock Grid.Row="5" Text="{DynamicResource LabelTargetDays}" VerticalAlignment="Center" Margin="0,0,0,8"/>
+        <StackPanel Grid.Row="5" Grid.Column="1" x:Name="WeekdayPanel" 
+                    Orientation="Horizontal" Margin="0,0,0,8">
+            <CheckBox x:Name="ChkMon" Content="{DynamicResource DayMon}" Margin="0,0,8,0"/>
+            <CheckBox x:Name="ChkTue" Content="{DynamicResource DayTue}" Margin="0,0,8,0"/>
+            <CheckBox x:Name="ChkWed" Content="{DynamicResource DayWed}" Margin="0,0,8,0"/>
+            <CheckBox x:Name="ChkThu" Content="{DynamicResource DayThu}" Margin="0,0,8,0"/>
+            <CheckBox x:Name="ChkFri" Content="{DynamicResource DayFri}" Margin="0,0,8,0"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="6" Text="{DynamicResource LabelTargetDay}" VerticalAlignment="Center" Margin="0,0,0,8"
+                   x:Name="MonthlyDayLabel"/>
+        <ComboBox Grid.Row="6" Grid.Column="1" x:Name="MonthlyDayComboBox" Margin="0,0,0,8"/>
+
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Right">
+            <Button Content="{DynamicResource BtnSave}" Width="80" Padding="5,8" Margin="0,0,10,0"
+                    Click="SaveButton_Click"/>
+            <Button Content="{DynamicResource BtnCancel}" Width="80" Padding="5,8"
+                    Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

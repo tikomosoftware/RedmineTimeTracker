@@ -1,0 +1,31 @@
+# Build outputs
+bin/
+obj/
+dist/
+
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.cache
+*.docstates
+
+# Distribution packages
+*.zip
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+build_log.txt
+build_log_2.txt
+run_log.txt
+
+# Kiro IDE
+.kiro/
