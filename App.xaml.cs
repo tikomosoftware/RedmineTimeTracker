@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Windows;
 
 namespace redmineSupTool
@@ -7,22 +8,23 @@ namespace redmineSupTool
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            SetLanguage();
+            SetLanguage(e.Args);
         }
 
-        private void SetLanguage()
+        private void SetLanguage(string[] args)
         {
-            string culture = System.Globalization.CultureInfo.CurrentUICulture.Name;
+            // Support both -en and --en
+            bool forceEnglish = args.Contains("-en") || args.Contains("--en");
+
+            string culture = forceEnglish ? "en-US" : System.Globalization.CultureInfo.CurrentUICulture.Name;
             string dictPath = culture.StartsWith("ja") 
                 ? "Resources/Strings.ja-JP.xaml" 
                 : "Resources/Strings.en-US.xaml";
 
-            ResourceDictionary dict = new ResourceDictionary();
-            dict.Source = new Uri(dictPath, UriKind.Relative);
+            ResourceDictionary dict = new ResourceDictionary { Source = new Uri(dictPath, UriKind.Relative) };
             
-            // Remove existing lang dict if any, or just add
-            // For simplicity in this app structure, we just add it. 
-            // If dynamic switching at runtime was needed, we'd clear old one first.
+            // Clear existing to avoid conflicts if previously set
+            this.Resources.MergedDictionaries.Clear();
             this.Resources.MergedDictionaries.Add(dict);
         }
     }
