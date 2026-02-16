@@ -62,7 +62,12 @@ Windows の最新トレンドを取り入れた、シンプルで美しいデザ
 - **条件**: 別途 [.NET 9.0 Runtime](https://dotnet.microsoft.com/download/dotnet/9.0) のインストールが必要です。
 - **メリット**: ファイルサイズが非常に軽量です。
 
-## 🚀 使い方
+## � 動作要件
+
+- **Redmine**: バージョン 3.0 以降 (REST API が有効であること)
+- **OS**: Windows 10 以降
+
+## �🚀 使い方
 
 1. `redmineSupTool.exe` を起動します。
 2. 初回起動時に Redmine の **URL** と **API Key** を設定します。

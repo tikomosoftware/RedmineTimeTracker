@@ -62,6 +62,11 @@ Two packages are available to suit your needs. We recommend the **Standalone** v
 - **Requirements**: Requires separate installation of [.NET 9.0 Runtime](https://dotnet.microsoft.com/download/dotnet/9.0)
 - **Benefits**: Very lightweight file size
 
+## 📋 System Requirements
+
+- **Redmine**: Version 3.0 or later (REST API must be enabled)
+- **OS**: Windows 10 or later
+
 ## 🚀 How to Use
 
 1. Launch `redmineSupTool.exe`
