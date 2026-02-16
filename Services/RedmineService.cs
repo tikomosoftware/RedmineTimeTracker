@@ -207,8 +207,7 @@ namespace redmineSupTool.Services
             {
                 var url = $"{_settings.BaseUrl.TrimEnd('/')}/time_entries.json" +
                           $"?user_id=me" +
-                          $"&spent_on=>={startDate:yyyy-MM-dd}" +
-                          $"&spent_on=<={endDate:yyyy-MM-dd}" +
+                          $"&spent_on=%3E%3C{startDate:yyyy-MM-dd}%7C{endDate:yyyy-MM-dd}" +
                           $"&limit={limit}" +
                           $"&offset={offset}";
 

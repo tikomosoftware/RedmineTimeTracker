@@ -85,6 +85,7 @@ For detailed instructions, please refer to [USER_GUIDE.en.md](USER_GUIDE.en.md).
   - Added a common description/keyword field for all created issues.
   - Optimized sequential processing to ensure correct ID ordering in Redmine.
 - **🐞 Bug Fixes & Stability**
+  - Fixed an issue where the total time on the calendar was displayed incorrectly (including historical entries).
   - Fixed null reference warnings in resource retrieval.
   - Minor UI adjustments for the bulk creation dialog.
 

@@ -161,7 +161,7 @@ namespace redmineSupTool
                 var endDate = _selectedMonth.AddMonths(1).AddDays(-1);
                 try
                 {
-                    AppendLog($"GET /time_entries.json?spent_on=>={_selectedMonth:yyyy-MM-dd}&spent_on<={endDate:yyyy-MM-dd}");
+                    AppendLog($"GET /time_entries.json?spent_on=%3E%3C{_selectedMonth:yyyy-MM-dd}%7C{endDate:yyyy-MM-dd}");
                     _existingEntries = await _redmineService.GetTimeEntriesAsync(_selectedMonth, endDate);
                     AppendLog(GetString("LogTimeEntryLoaded", _existingEntries.Count));
                 }
@@ -201,7 +201,10 @@ namespace redmineSupTool
 
             CalendarTitle.Text = _selectedMonth.ToString(GetString("DateFormatMonth"));
             
-            decimal totalHours = _existingEntries.Sum(e => e.Hours);
+            string monthPrefix = _selectedMonth.ToString("yyyy-MM");
+            decimal totalHours = _existingEntries
+                .Where(e => e.SpentOn.StartsWith(monthPrefix))
+                .Sum(e => e.Hours);
             TotalHoursTextBlock.Text = string.Format(GetString("LabelTotal", totalHours));
 
             // Day of week header
